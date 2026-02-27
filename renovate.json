@@ -7,11 +7,6 @@
 		"pep621",
 		"github-actions"
 	],
-	"uv": {
-		"fileMatch": [
-			"^uv.lock$"
-		]
-	},
 	"automerge": false,
 	"automergeType": "branch"
 }
