@@ -18,13 +18,13 @@ jobs:
       contents: read # checkout
       pull-requests: write # reviewdog
     runs-on: ubuntu-22.04
-    container: globeswiss/cloud-sdk:py3.12.12-554.0.0
+    container: globeswiss/cloud-sdk:py3.12.12-554.0.0@sha256:3db9a24c68fdafd462600db739da909cbb17eca502828f4d3696a9c2d0484790
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Install uv
-        uses: astral-sh/setup-uv@v7.3.0
+        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
       - name: Sync dev dependencies
         run: uv sync
       - name: Check requirements file
@@ -36,14 +36,14 @@ jobs:
         run: uv run pylint --reports=y phenoback test main.py
         if: always()
       - name: Check black
-        uses: reviewdog/action-black@v3.22.4
+        uses: reviewdog/action-black@644053a260402bc4278a865906107bd8aef7fae8 # v3.22.4
         with:
           reporter: github-check
           verbose: True
           fail_on_error: True
         if: always()
       - name: Check markdownlint
-        uses: reviewdog/action-markdownlint@v0.26.2
+        uses: reviewdog/action-markdownlint@3667398db9118d7e78f7a63d10e26ce454ba5f58 # v0.26.2
         with:
           reporter: github-check
           fail_level: warning
@@ -53,19 +53,19 @@ jobs:
       id-token: write # codecov oidc
       contents: read # checkout
     runs-on: ubuntu-22.04
-    container: globeswiss/cloud-sdk:py3.12.12-554.0.0
+    container: globeswiss/cloud-sdk:py3.12.12-554.0.0@sha256:3db9a24c68fdafd462600db739da909cbb17eca502828f4d3696a9c2d0484790
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Install uv
-        uses: astral-sh/setup-uv@v7.3.0
+        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
       - name: Sync dev dependencies
         run: uv sync
       - name: Run pytest
         run: uv run python -m pytest --cov-report xml --cov=main --cov=phenoback --cov-branch
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5.5.2
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
         with:
           use_oidc: true
           files: ./coverage.xml
@@ -79,8 +79,8 @@ jobs:
       actions: read # only needed for private repos
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
       - name: Run zizmor 🌈
-        uses: zizmorcore/zizmor-action@v0.5.0
+        uses: zizmorcore/zizmor-action@0dce2577a4760a2749d8cfb7a84b7d5585ebcb7d # v0.5.0
