@@ -21,6 +21,8 @@ jobs:
         with:
           persist-credentials: true
           ref: ${{ github.head_ref }}
+      - name: Work around https://github.com/actions/checkout/issues/766
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"          
       - name: Install uv
         uses: astral-sh/setup-uv@v7.3.0
       - name: Export production requirements
