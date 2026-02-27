@@ -1,0 +1,17 @@
+{
+	"extends": [
+		"config:best-practices",
+		":disableDependencyDashboard"
+	],
+	"enabledManagers": [
+		"pep621",
+		"github-actions"
+	],
+	"uv": {
+		"fileMatch": [
+			"^uv.lock$"
+		]
+	},
+	"automerge": false,
+	"automergeType": "branch"
+}
