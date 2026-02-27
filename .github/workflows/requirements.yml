@@ -14,15 +14,15 @@ jobs:
     permissions:
       contents: write # commit changes to PR branch
     runs-on: ubuntu-22.04
-    container: globeswiss/cloud-sdk:py3.12.12-554.0.0
+    container: globeswiss/cloud-sdk:py3.12.12-554.0.0@sha256:3db9a24c68fdafd462600db739da909cbb17eca502828f4d3696a9c2d0484790
     if: startsWith(github.head_ref, 'renovate/')
     steps:
-      - uses: actions/checkout@v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: true
           ref: ${{ github.head_ref }}
       - name: Install uv
-        uses: astral-sh/setup-uv@v7.3.0
+        uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
       - name: Export production requirements
         run: uv export --format requirements-txt --no-hashes --no-dev > requirements.txt
       - name: Commit and push if changed
