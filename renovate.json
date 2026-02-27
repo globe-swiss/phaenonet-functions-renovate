@@ -8,6 +8,13 @@
 		"pep621",
 		"github-actions"
 	],
+	"packageRules": [
+	  {
+	    "matchManagers": ["pep621"],
+	    "matchDepTypes": ["requires-python"],
+	    "enabled": false
+	  }
+	]	
 	"automerge": false,
 	"automergeType": "branch"
 }
