@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-24.04
     needs: next-versions
     if: always()
-    container: gcr.io/google.com/cloudsdktool/cloud-sdk:latest@sha256:ba0af18673b138090a5a874db6e05875d9427786cf5817d064b7ff9b3f60c08e
+    container: gcr.io/google.com/cloudsdktool/cloud-sdk:latest@sha256:89c029fadc744a88ab909a429dae4ae5d36a0764a72c7ad24a47ed54c92a9693
     continue-on-error: false
     strategy:
       fail-fast: false
