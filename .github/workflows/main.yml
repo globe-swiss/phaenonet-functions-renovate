@@ -1,8 +1,8 @@
 name: Build and test
 
 on: 
- - push
- - pull_request
+ push:
+ pull_request:
 
 env:
   LANG: en_US.UTF-8
